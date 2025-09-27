@@ -6,12 +6,47 @@
     <title>Thank You</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            keyframes: {
+              wiggle: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+              zoomIn: {
+                "0%": { transform: "scale(0.5)", opacity: "0" },
+                "50%": { transform: "scale(1.2)", opacity: "1" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              wiggleZoom: {
+                "0%, 100%": {
+                  transform: "rotate(-3deg) scale(0.8)",
+                  opacity: "0.8",
+                },
+                "25%": { transform: "rotate(3deg) scale(1.1)", opacity: "1" },
+                "50%": { transform: "rotate(-3deg) scale(1.2)", opacity: "1" },
+                "75%": { transform: "rotate(3deg) scale(1.1)", opacity: "1" },
+              },
+            },
+            animation: {
+              wiggle: "wiggle 0.5s ease-in-out infinite",
+              zoomIn: "zoomIn 1.5s ease-in-out infinite alternate",
+              wiggleZoom: "wiggleZoom 1.5s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body
     class="bg-[url('https://i.pinimg.com/736x/6b/29/16/6b29163a1f64223aa4fed8f8d4d20c76.jpg')] bg-cover bg-center font-sans"
   >
     <div
-      class="flex justify-center gap-5 m-4 p-4 bg-pink-200 shadow-md rounded-lg"
+      class="animate-wiggle flex justify-center gap-5 m-4 p-4 bg-pink-200 shadow-md rounded-lg"
     >
       <a href="index.html" class="font-serif hover:text-pink-600"
         >Introduction</a
@@ -23,7 +58,7 @@
     </div>
 
     <div
-      class="max-w-lg mx-auto mt-20 bg-white/90 backdrop-blur-sm p-10 rounded-2xl shadow-xl text-center"
+      class="animate-zoomIn max-w-lg mx-auto mt-20 bg-white/90 backdrop-blur-sm p-10 rounded-2xl shadow-xl text-center"
     >
       <h1 class="text-3xl font-bold text-pink-600 mb-4">🎉 Thank You! 🎉</h1>
       <p class="text-gray-700 text-lg leading-relaxed">
